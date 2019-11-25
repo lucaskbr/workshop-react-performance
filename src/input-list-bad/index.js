@@ -3,6 +3,8 @@ import List from './list';
 import Helper from '../helper';
 import './input-list.css';
 
+//TODO: early data fetch
+
 function InputList({ slow }) {
   const [text, setText] = useState('');
   const [products, setProducts] = useState([]);
@@ -14,6 +16,8 @@ function InputList({ slow }) {
     setText(e.target.value);
   }
 
+  //TODO: use deferred value
+
   return (
     <div>
       <input
@@ -23,7 +27,9 @@ function InputList({ slow }) {
         placeholder="Buscar..."
         onChange={handleChange}
       />
-
+      {
+        //TODO: Adicionar Suspense
+      }
       <List searchText={text} data={products} slow={slow} />
     </div>
   );
