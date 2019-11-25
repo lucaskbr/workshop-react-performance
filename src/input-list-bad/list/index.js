@@ -3,7 +3,9 @@ import ListItem from './list-item';
 import ListText from './list-text';
 import './list.css';
 
-export default function({ searchText, data, slow }) {
+//TODO: utilizar memo
+export default function List({ searchText, data, slow }) {
+  //TODO: utilizar a interface read - baseado na promiser wrapper do helper
   const searchTextLower = searchText.toLowerCase();
   const items = data
     .filter(item => item.name.toLowerCase().includes(searchTextLower))

@@ -1,7 +1,7 @@
 import React, { useState, Suspense, useDeferredValue } from 'react';
 import List from './list';
 import Helper from './../helper';
-import Loader from './loader';
+import Loader from '../loader';
 
 import './input-list.css';
 

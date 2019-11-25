@@ -15,6 +15,7 @@ export default function ListItem({ item, slow, productIndex }) {
   };
 
   useEffect(() => {
+    //TODO: Remover parâmetro "true" - irá transformar a promise na interface que utilizamos no suspense
     setCommentResponse(
       Helper.callPromiseWithTimeout(item.comments, `fetching comments ${productIndex}`, true)
     );
@@ -33,6 +34,9 @@ export default function ListItem({ item, slow, productIndex }) {
         <div className="list-item__text">
           <span className="list-item__hat">{item.category}</span>
           <h3 className="list-item__head">{item.name}</h3>
+          {
+            //TODO: Colocar Suspense
+          }
           <CommentsLength comments={commentResponse} />
           <div className="list-item__sub">{getFormattedPrice(item.price, item.currency)}</div>
         </div>
