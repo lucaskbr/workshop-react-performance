@@ -16,9 +16,7 @@ export default function ListItem({ item, slow }) {
 
   useEffect(() => {
     //TODO: Remover parâmetro "true" - irá transformar a promise na interface que utilizamos no suspense
-    setCommentResponse(
-      Helper.callPromiseWithTimeout(item.comments, `fetching comments ${productIndex}`, true)
-    );
+    setCommentResponse(Helper.callPromiseWithTimeout(item.comments, '', true));
   }, [item.comments]);
 
   return (
