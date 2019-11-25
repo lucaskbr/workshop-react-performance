@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useDeferredValue } from 'react';
+import React, { useState } from 'react';
 import List from './list';
 import Helper from '../helper';
 import './input-list.css';

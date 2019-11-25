@@ -1,9 +1,9 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Helper from '../../../helper';
 import CommentsLength from './comments-length';
 import './list-item.css';
 
-export default function ListItem({ item, slow, productIndex }) {
+export default function ListItem({ item, slow }) {
   Helper.applySlowPerformance(slow);
   const [commentResponse, setCommentResponse] = useState([]);
   const getFormattedPrice = (number, currencyRaw) => {
@@ -15,10 +15,8 @@ export default function ListItem({ item, slow, productIndex }) {
   };
 
   useEffect(() => {
-    setCommentResponse(
-      Helper.callPromiseWithTimeout(item.comments, `fetching comments ${productIndex}`, true)
-    );
-  }, []);
+    setCommentResponse(Helper.callPromiseWithTimeout(item.comments, '', true));
+  }, [item.comments]);
 
   return (
     <li className="list-item">
@@ -27,7 +25,7 @@ export default function ListItem({ item, slow, productIndex }) {
           <img
             className="list-item__img"
             src={`${item.image}?text=${item.category}`}
-            alt="product picture"
+            alt={item.category}
           />
         </div>
         <div className="list-item__text">
